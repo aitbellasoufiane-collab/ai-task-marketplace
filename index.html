@@ -1,0 +1,82 @@
+﻿﻿<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>منصة العمل الذكي - اربح من إنجاز المهام</title>
+  <meta name="description" content="أنجز مهام بسيطة مدعومة بالذكاء الاصطناعي واكسب أموالاً حقيقية من خلال منصتنا." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.png" type="image/png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="منصة العمل الذكي - اربح من إنجاز المهام" />
+  <meta property="og:description" content="أنجز مهام بسيطة مدعومة بالذكاء الاصطناعي واكسب أموالاً حقيقية من خلال منصتنا." />
+  <meta property="og:image" content="/images/social-preview.jpg" />
+  <meta property="og:url" content="/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="منصة العمل الذكي - اربح من إنجاز المهام" />
+  <meta name="twitter:description" content="أنجز مهام بسيطة مدعومة بالذكاء الاصطناعي واكسب أموالاً حقيقية من خلال منصتنا." />
+  <meta name="twitter:image" content="/images/social-preview.jpg" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <script src="script.js" defer></script>
+    <header>
+        <nav class="container nav">
+            <div class="brand">منصة العمل الذكي</div>
+            <div>
+                <button class="btn btn-secondary" onclick="showPayoutInfo()">معلومات الدفع</button>
+                <button class="btn btn-primary" style="margin-right: 8px;" onclick="document.getElementById('task-form-card').classList.toggle('hidden')">انشر مهمة</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container" style="padding-top: 32px; display: grid; grid-template-columns: 3fr 1fr; gap: 24px;">
+        <div id="tasks-section">
+            <h1 style="font-size: 2rem; margin-bottom: 16px;">سوق المهام</h1>
+            <div id="task-list" class="grid">
+                <!-- Tasks will be rendered here by JavaScript -->
+            </div>
+        </div>
+
+        <aside>
+            <div class="card wallet">
+                <h2>محفظة العامل</h2>
+                <p class="wallet-balance"><span id="worker-wallet-balance">0.00</span> درهم</p>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="alert('سيتم تحويل الرصيد إلى حسابك المسجل.')">سحب الأرباح</button>
+            </div>
+
+            <div class="card" style="margin-top: 16px; background: #0f172a;">
+                <h2>لوحة تحكم المالك</h2>
+                <p style="color: var(--muted); font-size: 0.9rem;">أرباح المنصة (عمولات + رسوم)</p>
+                <p class="wallet-balance" style="font-size: 1.8rem; color: var(--gold);"><span id="owner-wallet-balance">0.00</span> درهم</p>
+                <button class="btn btn-secondary" style="width: 100%;" onclick="generateAITasks()">🤖 توليد مهام جديدة بالذكاء الاصطناعي</button>
+            </div>
+
+            <div id="task-form-card" class="card hidden" style="margin-top: 16px;">
+                <h2>انشر مهمة جديدة</h2>
+                <form id="task-form" style="display: flex; flex-direction: column; gap: 12px;">
+                    <input id="task-title" type="text" placeholder="عنوان المهمة" required style="padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text);">
+                    <textarea id="task-desc" placeholder="وصف قصير للمهمة" required style="padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text);"></textarea>
+                    <input id="task-reward" type="number" placeholder="المكافأة (بالدرهم)" required style="padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text);">
+                    <div>
+                        <input type="checkbox" id="task-featured">
+                        <label for="task-featured" style="color: var(--gold);">تمييز المهمة (+5 درهم)</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">انشر وادفع</button>
+                </form>
+            </div>
+        </aside>
+    </main>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Basic Netlify configuration file
+
+# Set custom headers for all pages to improve caching and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
